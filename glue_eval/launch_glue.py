@@ -20,14 +20,16 @@ def main(model_name_or_path, task, seed, no_config):
             --do_train \
             --do_eval \
             --seed {seed} \
-            --save_strategy no \
+            --save_strategy epoch \
             --learning_rate 2e-5 \
-            --num_train_epochs 20 \
+            --num_train_epochs 6 \
             --output_dir {output_dir} \
             --overwrite_output_dir \
             --logging_steps 50 \
             --evaluation_strategy epoch \
+            --load_best_model_at_end \
             --save_steps -1 \
+            --save_total_limit 1 \
             --fp16 """
     if not no_config:
         cmd += r""" \
